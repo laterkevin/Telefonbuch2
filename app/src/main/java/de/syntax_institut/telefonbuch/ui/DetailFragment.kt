@@ -14,16 +14,18 @@ import de.syntax_institut.telefonbuch.databinding.FragmentDetailBinding
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
-//    private var telNr = 0
-//    private var telName = 0
+    private var telName = ""
+    private var telNr = ""
+
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         // TODO: lade die benötigten IDs aus den Navigationsargumenten
-//        arguments?.let {
-//            telNr = it.getInt("telNr")
-//            telName = it.getInt("telName")
-//        }
+        arguments?.let {
+            telName = it.getString("telName").toString()
+            telNr = it.getString("telNr").toString()
+
+        }
     }
 
     override fun onCreateView(
@@ -43,9 +45,11 @@ class DetailFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-//        binding.tvItemNameDetail.text = getString(telName)
-//        binding.tvItemNumberDetail.text = getString(telNr)
+        binding.tvItemNameDetail.text = telName
+        binding.tvItemNumberDetail.text = telNr
 
-
+        binding.btnAdd.setOnClickListener {
+            view.findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToEditFragment(telName = telName, telNr = telNr))
+        }
     }
 }

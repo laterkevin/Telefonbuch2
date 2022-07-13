@@ -48,10 +48,7 @@ class ItemAdapter(
         holder.mcView.setOnClickListener {
 
             val navController = holder.itemView.findNavController()
-            navController.navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(
-//                telNr = dataset[position].name, telName = dataset[position].number
-            )
-            )
+            navController.navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(telName = dataset[position].name, telNr = dataset[position].number))
         }
         holder.tvName.text = dataset[position].name
         holder.tvNumber.text = dataset[position].number
