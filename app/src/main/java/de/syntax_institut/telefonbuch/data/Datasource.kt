@@ -1,5 +1,6 @@
 package de.syntax_institut.telefonbuch.data
 
+import de.syntax_institut.telefonbuch.R
 import de.syntax_institut.telefonbuch.data.model.Contact
 
 /**

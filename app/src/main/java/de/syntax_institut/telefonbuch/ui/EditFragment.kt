@@ -1,9 +1,12 @@
 package de.syntax_institut.telefonbuch.ui
 
+import android.app.ProgressDialog.show
 import android.os.Bundle
+import android.view.Gravity
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
@@ -45,11 +48,14 @@ class EditFragment : Fragment() {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        binding.tvItemNameDetail.text = telName
-        binding.tvItemNumberDetail.text = telNr
+        binding.editTextTextPersonName.hint = telName
+        binding.editTextNumber.hint = telNr
 
         binding.btnSave.setOnClickListener {
             view.findNavController().navigate(EditFragmentDirections.actionEditFragmentToDetailFragment(telName = telName, telNr = telNr))
+
+            Toast.makeText(this.context, "Gespeichert!", Toast.LENGTH_LONG).apply {setGravity(Gravity.TOP, 0, 0); show() }
+
         }
     }
 }

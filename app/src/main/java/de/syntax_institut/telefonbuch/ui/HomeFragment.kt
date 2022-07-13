@@ -12,7 +12,7 @@ import de.syntax_institut.telefonbuch.data.Datasource
 import de.syntax_institut.telefonbuch.data.model.Contact
 import de.syntax_institut.telefonbuch.databinding.FragmentHomeBinding
 
-class HomeFragment : Fragment() {
+class HomeFragment: Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
 
