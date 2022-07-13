@@ -12,7 +12,7 @@ import de.syntax_institut.telefonbuch.data.Datasource
 import de.syntax_institut.telefonbuch.data.model.Contact
 import de.syntax_institut.telefonbuch.databinding.FragmentHomeBinding
 
-class HomeFragment: Fragment() {
+class HomeFragment : Fragment() {
 
     private lateinit var binding: FragmentHomeBinding
 
@@ -27,23 +27,22 @@ class HomeFragment: Fragment() {
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        // hole die Liste mit den Kontakten
+
         val contacts = Datasource().loadContacts()
+        binding.recyclerView.adapter = ItemAdapter(contacts)
 
-        // die RecyclerView bekommt den Adapter
-        val itemAdapter = ItemAdapter(contacts)
-        binding.recyclerView.adapter = itemAdapter
-
-        // Button fügt einen Listeneintrag hinzu
         binding.btnAdd.setOnClickListener {
 
             // Hole den Inhalt aus den Textfeldern
             val name = binding.inName.text.toString()
             val number = binding.inPhoneNumber.text.toString()
 
-            // Falls in beiden Textfeldern etwas steht
+
+            val itemAdapter = ItemAdapter(contacts)
+            binding.recyclerView.adapter = itemAdapter
+
             if (name != "" && number != "") {
-                val position = contacts.size // kann auch ein anderer Index <= contacts.size sein
+                val position = contacts.size
                 contacts.add(position, Contact(name, number))
                 itemAdapter.notifyItemInserted(position)
                 binding.inName.setText("")

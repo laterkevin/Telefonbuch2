@@ -4,9 +4,14 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
+import androidx.appcompat.view.menu.MenuView
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.RecyclerView
+import com.google.android.material.card.MaterialCardView
 import de.syntax_institut.telefonbuch.R
 import de.syntax_institut.telefonbuch.data.model.Contact
+import de.syntax_institut.telefonbuch.ui.HomeFragment
+import de.syntax_institut.telefonbuch.ui.HomeFragmentDirections
 
 /**
  * Diese Klasse organisiert mithilfe der ViewHolder Klasse das Recycling
@@ -19,6 +24,7 @@ class ItemAdapter(
      * der ViewHolder umfasst die View uns stellt einen Listeneintrag dar
      */
     inner class ItemViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        var mcView: MaterialCardView = itemView.findViewById(R.id.materialCardView)
         var tvName: TextView = itemView.findViewById(R.id.tvItemName)
         var tvNumber: TextView = itemView.findViewById(R.id.tvItemNumber)
     }
@@ -39,8 +45,17 @@ class ItemAdapter(
      * die vom ViewHolder bereitgestellten Parameter erhalten die Information des Listeneintrags
      */
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
+        holder.mcView.setOnClickListener {
+
+            val navController = holder.itemView.findNavController()
+            navController.navigate(HomeFragmentDirections.actionHomeFragmentToDetailFragment(
+//                telNr = dataset[position].name, telName = dataset[position].number
+            )
+            )
+        }
         holder.tvName.text = dataset[position].name
         holder.tvNumber.text = dataset[position].number
+
     }
 
     /**

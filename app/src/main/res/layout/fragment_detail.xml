@@ -30,20 +30,20 @@
                 android:layout_height="wrap_content">
 
                 <TextView
-                    android:id="@+id/tvItemName"
+                    android:id="@+id/tvItemName_detail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="Max Mustermann"
                     android:textColor="?attr/colorOnSecondary"
                     android:textSize="20sp"
                     android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/tvItemNumber"
+                    app:layout_constraintBottom_toTopOf="@+id/tvItemNumber_detail"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
 
                 <TextView
-                    android:id="@+id/tvItemNumber"
+                    android:id="@+id/tvItemNumber_detail"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:text="+49123498765"
@@ -52,7 +52,7 @@
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/tvItemName" />
+                    app:layout_constraintTop_toBottomOf="@+id/tvItemName_detail" />
             </androidx.constraintlayout.widget.ConstraintLayout>
 
         </com.google.android.material.card.MaterialCardView>
