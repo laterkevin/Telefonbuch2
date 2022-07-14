@@ -11,6 +11,9 @@ import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.navigation.findNavController
 import de.syntax_institut.telefonbuch.R
+import de.syntax_institut.telefonbuch.adapter.ItemAdapter
+import de.syntax_institut.telefonbuch.data.Datasource
+import de.syntax_institut.telefonbuch.data.model.Contact
 import de.syntax_institut.telefonbuch.databinding.FragmentEditBinding
 
 
@@ -62,8 +65,8 @@ class EditFragment : Fragment() {
                 )
             )
 
-            Toast.makeText(this.context, "Gespeichert!", Toast.LENGTH_LONG)
-                .apply { setGravity(Gravity.TOP, 0, 0); show() }
+                Toast.makeText(this.context, "Gespeichert!", Toast.LENGTH_LONG)
+                    .apply { setGravity(Gravity.TOP, 0, 0); show() }
 
         }
     }
