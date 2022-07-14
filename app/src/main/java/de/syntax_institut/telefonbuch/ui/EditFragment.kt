@@ -17,6 +17,7 @@ import de.syntax_institut.telefonbuch.databinding.FragmentEditBinding
 class EditFragment : Fragment() {
 
     private lateinit var binding: FragmentEditBinding
+    private var telId = 0
     private var telName = ""
     private var telNr = ""
 
@@ -25,6 +26,7 @@ class EditFragment : Fragment() {
         super.onCreate(savedInstanceState)
         // TODO: lade die benötigten IDs aus den Navigationsargumenten
         arguments?.let {
+            telId = it.getInt("telId")
             telName = it.getString("telName").toString()
             telNr = it.getString("telNr").toString()
 
@@ -52,9 +54,16 @@ class EditFragment : Fragment() {
         binding.editTextNumber.hint = telNr
 
         binding.btnSave.setOnClickListener {
-            view.findNavController().navigate(EditFragmentDirections.actionEditFragmentToHomeFragment(telName = telName, telNr = telNr, telId = 0))
+            view.findNavController().navigate(
+                EditFragmentDirections.actionEditFragmentToHomeFragment(
+                    telName = telName,
+                    telNr = telNr,
+                    telId = 0
+                )
+            )
 
-            Toast.makeText(this.context, "Gespeichert!", Toast.LENGTH_LONG).apply {setGravity(Gravity.TOP, 0, 0); show() }
+            Toast.makeText(this.context, "Gespeichert!", Toast.LENGTH_LONG)
+                .apply { setGravity(Gravity.TOP, 0, 0); show() }
 
         }
     }

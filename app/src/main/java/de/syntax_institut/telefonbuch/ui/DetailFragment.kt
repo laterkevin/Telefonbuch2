@@ -51,7 +51,13 @@ class DetailFragment : Fragment() {
         binding.tvItemNumberDetail.text = telNr
 
         binding.btnAdd.setOnClickListener {
-            view.findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToEditFragment(telName = telName, telNr = telNr, telId = telId))
+            view.findNavController().navigate(
+                DetailFragmentDirections.actionDetailFragmentToEditFragment(
+                    telName = telName,
+                    telNr = telNr,
+                    telId = telId
+                )
+            )
         }
     }
 }
