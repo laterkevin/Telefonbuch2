@@ -52,7 +52,7 @@ class EditFragment : Fragment() {
         binding.editTextNumber.hint = telNr
 
         binding.btnSave.setOnClickListener {
-            view.findNavController().navigate(EditFragmentDirections.actionEditFragmentToDetailFragment(telName = telName, telNr = telNr))
+            view.findNavController().navigate(EditFragmentDirections.actionEditFragmentToHomeFragment(telName = telName, telNr = telNr, telId = 0))
 
             Toast.makeText(this.context, "Gespeichert!", Toast.LENGTH_LONG).apply {setGravity(Gravity.TOP, 0, 0); show() }
 

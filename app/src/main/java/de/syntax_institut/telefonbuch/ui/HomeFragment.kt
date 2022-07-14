@@ -43,7 +43,7 @@ class HomeFragment: Fragment() {
 
             if (name != "" && number != "") {
                 val position = contacts.size
-                contacts.add(position, Contact(name, number))
+                contacts.add(position, Contact(0, name, number))
                 itemAdapter.notifyItemInserted(position)
                 binding.inName.setText("")
                 binding.inPhoneNumber.setText("")

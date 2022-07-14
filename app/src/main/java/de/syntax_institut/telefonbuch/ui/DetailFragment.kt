@@ -14,6 +14,7 @@ import de.syntax_institut.telefonbuch.databinding.FragmentDetailBinding
 class DetailFragment : Fragment() {
 
     private lateinit var binding: FragmentDetailBinding
+    private var telId = 0
     private var telName = ""
     private var telNr = ""
 
@@ -22,6 +23,7 @@ class DetailFragment : Fragment() {
         super.onCreate(savedInstanceState)
         // TODO: lade die benötigten IDs aus den Navigationsargumenten
         arguments?.let {
+            telId = it.getInt("telId")
             telName = it.getString("telName").toString()
             telNr = it.getString("telNr").toString()
 
@@ -49,7 +51,7 @@ class DetailFragment : Fragment() {
         binding.tvItemNumberDetail.text = telNr
 
         binding.btnAdd.setOnClickListener {
-            view.findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToEditFragment(telName = telName, telNr = telNr))
+            view.findNavController().navigate(DetailFragmentDirections.actionDetailFragmentToEditFragment(telName = telName, telNr = telNr, telId = telId))
         }
     }
 }
